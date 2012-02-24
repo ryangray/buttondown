@@ -5,14 +5,9 @@
     Date: 15 Feb 2011
     Revised: 21 Feb 2012
    
-    General style is clean, with minimal re-definition of the defaults or 
-    overrides of user font settings. The body text and header styles are 
-    left alone except title, author and date classes are centered. A Pandoc TOC 
-    is not printed, URLs are printed after hyperlinks in parentheses. 
-    Block quotes are italicized. Tables are lightly styled with lines above 
-    and below the table and below the header with a boldface header. Code 
-    blocks are line wrapped. 
-
+    General style is clean, with minimal re-definition of the defaults. It also 
+    contains built-in print optimizations. 
+    
     All elements that Pandoc and MultiMarkdown use should be listed here, even 
     if the style is empty so you can easily add styling to anything.
     
@@ -108,7 +103,7 @@ li /* All list items */
 
 li > p /* Loosely spaced list item */
     {
-    margin-top: 1em; /* IE: lack of space above a <li> when the item is inside a <p> */
+    margin-top: 1em; /* For IE's lack of space above a <li> when the item is inside a <p> */
     }
 
 ul /* Whole unordered list */
@@ -202,7 +197,7 @@ img
 div.figure /* Pandoc figure-style image */
     {
     /* Center the image and caption */
-    margin-left: auto;
+    margin-left:  auto;
     margin-right: auto;
     text-align: center;
     font-style: italic;
@@ -217,7 +212,7 @@ p.caption /* Pandoc figure-style caption within div.figure */
 
 pre, code 
     {
-    background-color: #fdf7ee;
+    background-color: #F1EEDE; /* #fdf7ee; */
     /* BEGIN word wrap */
     /* Need all the following to word wrap instead of scroll box */
     /* This will override the overflow:auto if present */
@@ -260,14 +255,18 @@ code /* All inline code spans */
 p > code, li > code /* Code spans in paragraphs and tight lists */
     {
     /* Pad a little from adjacent text */
-    padding-left:  2px;
-    padding-right: 2px;
+    padding-left:  0.3em;
+    padding-right: 0.3em;
+    padding-top:    0.1em;
+    padding-bottom: 0em;
+    border-radius: 3px;
     }
     
 li > p code /* Code span in a loose list */
     {
     /* We have room for some more background color above and below */
-    padding: 2px;
+    padding-top:    0.3em;
+    padding-bottom: 0.2em;
     }
 
 /* ---- Math ---- */
@@ -300,18 +299,21 @@ table
     border-collapse: collapse;
     border-spacing: 0; /* IE 6 */
 
-    border-bottom: 2pt solid #000;
-    border-top: 2pt solid #000; /* The caption on top will not have a bottom-border */
+    border-bottom: 2px solid #000;
+    border-top:    2px solid #000; /* The caption on top will not have a bottom-border */
 
     /* Center */
-    margin-left: auto;
+    margin-left:  auto;
     margin-right: auto;
     }
     
-thead /* Entire table header */
+thead, th /* Entire table header */
     {
-    border-bottom: 1pt solid #000;
-    background-color: #eee; /* Does this BG print well? */
+    /* Well, we add th here since IE doesn't seem to respond to thead. 
+       This will work until we have multi-row headers.
+    */
+    border-bottom: 1px solid #000;
+    background-color: #eee;
     }
 
 tr.header /* Each header row */
@@ -332,7 +334,7 @@ tr.odd:hover, tr.even:hover /* Use .odd and .even classes to avoid styling rows 
     }
     
 /* Odd and even rows */
-tr.odd {}
+tr.odd  {}
 tr.even {}
 
 td, th /* Table cells and table header cells */
@@ -370,10 +372,10 @@ caption /* This is for a table caption tag, not the p.caption Pandoc uses in a d
     {
     caption-side: top;
     border: none;
-    font-size: 0.9em;
+    font-size:  0.9em;
     font-style: italic;
     text-align: center;
-    margin-bottom: 0.3em; /* Good for when on top */
+    margin-bottom:  0.3em; /* Good for when on top */
     padding-bottom: 0.2em;
     }
 
@@ -381,7 +383,7 @@ caption /* This is for a table caption tag, not the p.caption Pandoc uses in a d
 
 dl /* The whole list */
     {
-    border-top: 2pt solid black;
+    border-top:  2pt solid black;
     padding-top: 0.5em;
     border-bottom: 2pt solid black;
     }
