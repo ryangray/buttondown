@@ -122,8 +122,14 @@ ol li /* Ordered list item */
     {
     }
 
-hr {}
-
+hr /* Simple line for normal rules */
+    {
+    border: none;
+    height: 1pt;
+    background: none;
+    border-top: 1pt solid #333;
+    }
+    
 /* ---- Some span elements --- */
 
 sub /* Subscripts. Pandoc: H~2~O */
@@ -212,7 +218,7 @@ p.caption /* Pandoc figure-style caption within div.figure */
 
 pre, code 
     {
-    background-color: #F1EEDE; /* #fdf7ee; */
+    background-color: #F1EEDE; /* A bit darker for screen */
     /* BEGIN word wrap */
     /* Need all the following to word wrap instead of scroll box */
     /* This will override the overflow:auto if present */
@@ -222,6 +228,14 @@ pre, code
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
     /* END word wrap */
+    }
+
+@media print
+    {
+    pre, pre > code
+        {
+        background-color: #fdf7ee; /* A bit lighter for printing */
+        }
     }
 
 pre /* Code blocks */
@@ -248,7 +262,12 @@ pre /* Code blocks */
         }
     }
 
-code /* All inline code spans */
+p > a > code /* Pandoc simple URLs */
+    {
+    background-color: inherit; /* Un-color from previous rules */
+    }
+    
+code /* All inline code spans (applies to pre>code as well) */
     {
     }
 
@@ -262,11 +281,13 @@ p > code, li > code /* Code spans in paragraphs and tight lists */
     border-radius: 3px;
     }
     
-li > p code /* Code span in a loose list */
+@media screen
     {
-    /* We have room for some more background color above and below */
-    padding-top:    0.3em;
-    padding-bottom: 0.2em;
+    p > code, li > code, li > p code
+        {
+        border-bottom: 1px solid #aaa;
+        border-right:  1px solid #aaa;
+        }
     }
 
 /* ---- Math ---- */
@@ -299,8 +320,8 @@ table
     border-collapse: collapse;
     border-spacing: 0; /* IE 6 */
 
-    border-bottom: 2px solid #000;
-    border-top:    2px solid #000; /* The caption on top will not have a bottom-border */
+    border-top:    2pt solid #000; /* The caption on top will not have a bottom-border */
+    border-bottom: 2pt solid #000;
 
     /* Center */
     margin-left:  auto;
@@ -312,7 +333,7 @@ thead, th /* Entire table header */
     /* Well, we add th here since IE doesn't seem to respond to thead. 
        This will work until we have multi-row headers.
     */
-    border-bottom: 1px solid #000;
+    border-bottom: 1pt solid #000;
     background-color: #eee;
     }
 
@@ -383,9 +404,9 @@ caption /* This is for a table caption tag, not the p.caption Pandoc uses in a d
 
 dl /* The whole list */
     {
-    border-top:  2pt solid black;
+    border-top:  2pt solid #888;
     padding-top: 0.5em;
-    border-bottom: 2pt solid black;
+    border-bottom: 2pt solid #888;
     }
 
 dt /* Definition term */
@@ -395,7 +416,7 @@ dt /* Definition term */
 
 dd+dt /* 2nd or greater term in the list */
     {
-    border-top: 1pt solid black;
+    border-top:  1pt solid #888;
     padding-top: 0.5em;
     }
     
@@ -406,7 +427,7 @@ dd /* A definition */
 
 dd+dd /* 2nd or greater definition of a term */
     {
-    border-top: 1px solid black; /* To separate multiple definitions */
+    border-top: 1px solid #888; /* To separate multiple definitions */
     }
     
 /* ---- Footnotes ---- */
@@ -435,6 +456,31 @@ div.footnotes /* Pandoc footnotes div at end of the document */
     
 div.footnotes li[id^="fn"] /* A footnote item within that div */
     {
+    }
+
+/* Fancy rule for footnotes section (from http://css-tricks.com/examples/hrs/) */
+
+div.footnotes > hr
+    {
+    margin-top: 2em;
+    padding: 0;
+    border: none;
+    border-top: double;
+    border-color: #333;
+    border-width: 3pt;
+    color: #000;
+    text-align: center;
+    }
+
+div.footnotes > hr:after
+    {
+    content: "NOTES";
+    display: inline-block;
+    position: relative; 
+    top: -0.8em;  
+    font-size: 0.8em;
+    padding: 0 0.5em;
+    background: white;
     }
 
 /* You can class stuff as "noprint" to not print. 
