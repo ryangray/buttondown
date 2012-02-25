@@ -75,13 +75,13 @@ div#TOC, nav#TOC
 /* ---- Headers and sections ---- */
 
 h1, h2, h3, h4, h5, h6
-{
+    {
     font-family: "Helvetica Neue", Helvetica, "Liberation Sans", Calibri, Arial, sans-serif; /* Sans-serif headers */
 
     /* font-family: "Liberation Serif", "Georgia", "Times New Roman", serif; /* Serif headers */
 
     page-break-after: avoid; /* Firefox, Chrome, and Safari do not support the property value "avoid" */
-}
+    }
 
 /* Pandoc with --section-divs option */
 
@@ -262,16 +262,7 @@ pre /* Code blocks */
         }
     }
 
-p > a > code /* Pandoc simple URLs */
-    {
-    background-color: inherit; /* Un-color from previous rules */
-    }
-    
 code /* All inline code spans (applies to pre>code as well) */
-    {
-    }
-
-p > code, li > code /* Code spans in paragraphs and tight lists */
     {
     /* Pad a little from adjacent text */
     padding-left:  0.3em;
@@ -280,16 +271,31 @@ p > code, li > code /* Code spans in paragraphs and tight lists */
     padding-bottom: 0em;
     border-radius: 3px;
     }
-    
+
 @media screen
     {
-    p > code, li > code, li > p code
+    code
         {
         border-bottom: 1px solid #aaa;
         border-right:  1px solid #aaa;
         }
     }
 
+pre > code /* Code in a code block */
+    {
+    padding: none;
+    border: none;
+    border-radius: none;
+    background-color: inherit;
+    }
+    
+code.url /* Pandoc simple URLs */
+    {
+    background-color: inherit; /* Un-color from previous rules */
+    border-bottom: none;
+    border-right:  none;
+    }
+    
 /* ---- Math ---- */
 
 span.math /* Pandoc inline math default and --jsmath inline math */
