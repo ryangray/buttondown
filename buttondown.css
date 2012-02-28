@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6
 
 div div, section section /* Nested sections */
     {
-    margin-left: 2em; /* This will increasingly indent nested header sections */
+    margin-left: 1.5em; /* This will increasingly indent nested header sections. 1.5 Keep it in line with bullet indent of parent section */
     }
 
 p {}
@@ -243,7 +243,7 @@ pre /* Code blocks */
     /* Distinguish pre blocks from other text by more than the font with a background tint. */
     padding: 0.5em; /* Since we have a background color */
     border-radius: 5px; /* Softens it */
-    /* Give it a some definition */
+    /* Give it a some definition, and if printing doesn't print the background */
     border: 1px solid #aaa;
     /* Set it off left and right, seems to look a bit nicer when we have a background */
     margin-left:  0.5em;
@@ -257,8 +257,9 @@ pre /* Code blocks */
         /* On screen, use an auto scroll box for long lines, unless word-wrap is enabled */
         white-space: pre;
         overflow: auto;
-        /* Dotted looks better on screen and solid seems to print better. */
-        border: 1px dotted #777;
+        /* Shadow on screen instead of border */
+        border: none;
+        box-shadow: 3px 3px 5px #bbb;
         }
     }
 
