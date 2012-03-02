@@ -207,6 +207,7 @@ div.figure /* Pandoc figure-style image */
     margin-right: auto;
     text-align: center;
     font-style: italic;
+    font-size:   small;
     }
 
 p.caption /* Pandoc figure-style caption within div.figure */
@@ -356,15 +357,16 @@ tbody /* Entire table  body */
 
 tr  {
     }
+
+/* Odd and even rows */
+tr.odd  {}
+tr.even {}
+
 tr.odd:hover, tr.even:hover /* Use .odd and .even classes to avoid styling rows in other tables */
     {
     background-color: #eee;
     }
     
-/* Odd and even rows */
-tr.odd  {}
-tr.even {}
-
 td, th /* Table cells and table header cells */
     { 
     vertical-align: top; /* Word */
