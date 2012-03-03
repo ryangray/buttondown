@@ -285,7 +285,7 @@ code /* All inline code spans (applies to pre>code as well) */
 
 pre > code /* Code in a code block */
     {
-    padding: none;
+    padding: 0; /* Remove the padding for code spans in a block */
     border: none;
     border-radius: none;
     background-color: inherit;
@@ -492,16 +492,58 @@ div.footnotes > hr:after
     background: white;
     }
 
+/* Convenience classes for DIVs or other things inserted into the Markdown */
+
 /* You can class stuff as "noprint" to not print. 
    Useful since you can't set this media conditional inside an HTML element's 
-   style attribute (I think), and you don't want to make another stylesheet that 
-   imports this one and adds a class just to do this.
+   style attribute (I think).
 */
 
+@media screen
+    {
+    .noscreen /* Don't display on screen (something for print only) */
+        {
+        display: none;
+        }
+    }
+    
 @media print
     {
-    .noprint
+    .noprint /* Don't display in print (something for screen only) */
         {
         display:none;
         }
+    }
+
+.block-center
+    {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    }
+.text-center
+    {
+    text-align: center;
+    }
+
+.block-right
+    {
+    margin-left: auto;
+    margin-right: 0;
+    display: table;
+    }
+.text-right
+    {
+    text-align: right;
+    }
+
+.block-left
+    {
+    margin-left: 0;
+    margin-right: auto;
+    display: table;
+    }
+.text-left
+    {
+    text-align: left;
     }
