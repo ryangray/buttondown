@@ -219,7 +219,6 @@ p.caption /* Pandoc figure-style caption within div.figure */
 
 pre, code 
     {
-    background-color: #F1EEDE; /* A bit darker for screen */
     /* BEGIN word wrap */
     /* Need all the following to word wrap instead of scroll box */
     /* This will override the overflow:auto if present */
@@ -231,12 +230,13 @@ pre, code
     /* END word wrap */
     }
 
-@media print
+code /* Coloring */
     {
-    pre, pre > code
-        {
-        background-color: #fdf7ee; /* A bit lighter for printing */
-        }
+    background-color: #F1EEDE; /* This will be only for code spans */
+    }
+pre, pre > code
+    {
+    background-color: #fdf7ee; /* A bit lighter for blocks since they are lareger */
     }
 
 pre /* Code blocks */
@@ -260,7 +260,7 @@ pre /* Code blocks */
         overflow: auto;
         /* Shadow on screen instead of border */
         border: none;
-        box-shadow: 3px 3px 5px #bbb;
+        box-shadow: 2px 2px 7px #ccc;
         }
     }
 
