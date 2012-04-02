@@ -405,7 +405,8 @@ caption /* This is for a table caption tag, not the p.caption Pandoc uses in a d
     font-size:  0.9em;
     font-style: italic;
     text-align: center;
-    margin-bottom:  0.3em; /* Good for when on top */
+    margin-top:  0.5em;
+    margin-bottom:  0.3em;
     padding-bottom: 0.2em;
     }
 
