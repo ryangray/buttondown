@@ -224,13 +224,17 @@ pre, code
     word-wrap: break-word;
     }
 
-code /* Coloring */
+/* Coloring */
+
+/* This will be only for code spans */
+code
     {
-    background-color: #F1EEDE; /* This will be only for code spans */
+    background-color: rgb(248, 244, 238);
     }
+/* This will be only for code blocks */
 pre, pre > code
     {
-    background-color: #fdf7ee; /* A bit lighter for blocks since they are lareger */
+    background-color: rgb(248, 244, 238);
     }
 
 pre /* Code blocks */
