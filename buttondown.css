@@ -281,18 +281,17 @@ code /* All inline code spans (applies to pre>code as well) */
     {
     code
         {
-        box-shadow: inset 0px 0px 2px #bbb;
+        border-bottom: 1px solid #aaa;
+        border-right:  1px solid #aaa;
         }
     }
 
-pre > code /* Code spans in a code block */
+pre > code /* Code in a code block */
     {
-    /* Remove some styling on the span box */
-    padding: 0;
+    padding: 0; /* Remove the padding for code spans in a block */
     border: none;
     border-radius: none;
     background-color: inherit;
-    box-shadow: none;
     }
     
 code.url /* Pandoc simple URLs */
