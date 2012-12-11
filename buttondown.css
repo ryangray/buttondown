@@ -229,12 +229,13 @@ pre, code
 /* This will be only for code spans */
 code
     {
-    background-color: rgb(248, 244, 238);
+    background-color: #F4F4F4;
     }
+    
 /* This will be only for code blocks */
 pre, pre > code
     {
-    background-color: rgb(248, 244, 238);
+    background-color: #F4F4F4;
     }
 
 pre /* Code blocks */
@@ -255,7 +256,7 @@ pre /* Code blocks */
         {
         /* Shadow on screen instead of border */
         border: none;
-        box-shadow: 2px 2px 7px #ccc;
+        box-shadow: inset 1px 1px 3px #bbb;
         }
 
     pre, pre > code
@@ -273,7 +274,7 @@ code /* All inline code spans (applies to pre>code as well) */
     padding-left:  0.3em;
     padding-right: 0.3em;
     padding-top:    0.1em;
-    padding-bottom: 0em;
+    padding-bottom: 0.1em;
     border-radius: 3px;
     }
 
@@ -281,24 +282,24 @@ code /* All inline code spans (applies to pre>code as well) */
     {
     code
         {
-        border-bottom: 1px solid #aaa;
-        border-right:  1px solid #aaa;
+        box-shadow: inset 0px 0px 2px #bbb;
         }
     }
 
-pre > code /* Code in a code block */
+pre > code /* Code span in a code block */
     {
-    padding: 0; /* Remove the padding for code spans in a block */
+    /* Remove some styling on the span box */
+    padding: 0;
     border: none;
     border-radius: none;
     background-color: inherit;
+    box-shadow: none;
     }
     
 code.url /* Pandoc simple URLs */
     {
     background-color: inherit; /* Un-color from previous rules */
-    border-bottom: none;
-    border-right:  none;
+    box-shadow: none;
     }
     
 /* ---- Math ---- */
