@@ -33,7 +33,7 @@
 /* Pandoc header DIV. Contains .title, .author and .date. Comes before div#TOC. 
    Only appears if one of those three are in the document.
 */
-
+<style type="text/css">
 div#header, header
     {
     /* Put border on bottom. Separates it from TOC or body that comes after it. */
@@ -552,3 +552,4 @@ div.footnotes > hr:after
     {
     text-align: left;
     }
+</style>
