@@ -552,3 +552,19 @@ div.footnotes > hr:after
     {
     text-align: left;
     }
+
+
+/* ---- Markmon ---- */
+
+/* This is the class that markmon uses for that bar to indicate where the
+   last change happened. Here we replicate the definition from markmon own
+   css so that we can use buttondown.css with markmon without 'losing' the
+   bar to indicate the last change */
+.highlighter
+{
+    position: absolute;
+    border-bottom: 2px solid orangered;
+    left: 2%;
+    width: 96%;
+    box-shadow: 0 1px 1px white;
+}
