@@ -1,37 +1,62 @@
-% Buttondown Stylesheet Example
-% Pandoc Markdown Version
-% February 2012
+---
+title: Buttondown Stylesheet Example
+subtitle: Pandoc Markdown Version
+author: Ryan Gray
+date: February 2016
+abstract: Demonstrates the Buttondown CSS stylings for a Pandoc HTML output.
+---
 
 Headers
 =======
 
-Above this, we have the title, author (or subtitle) and date 
-Pandoc metadata. These are specially classed H1, H2 and H3 
-elements that we just add centering to.
+Above this, we have the title, subtitle, author, date, and abstract 
+Pandoc metadata. These are specially classed H1, H2, H3, and DIV 
+elements that we add styling to.
 
 ## Level 2
 
-With Pandoc's `--section-divs` option, nested header levels 
-create nested DIVs. This stylesheet creates nested indentation 
+With Pandoc's `--section-divs` option, nested header levels create 
+nested DIVs in HTML. This stylesheet creates nested indentation 
 for them to nest visually.
 
 ### Level 3
 
-I should create some auxiliary CSS files that you could include 
-after `buttondown.css` to change some things like turning off 
-nested indenting.
+I you can, of course, modify this CSS file or override some elements with 
+your own other CSS after `buttondown.css` to change some things like 
+turning off nested indenting.
 
 #### Level 4
 
 Buttondown doesn't re-define the font size or weight of the 
 headers, but it does define the font families for them as sans-
-serf.
+serf. I have personally been using these font-size settings:
+
+```css
+h1 {
+    font-size: 170%; /* Tone it down from 200% */
+    }
+h2 {
+    font-size: 130%; /* Tone it down from 150% */
+    }
+h3 {
+    font-size: 120%; /* Up from 116% */
+    }
+h4 {
+    font-size: 110%; /* Up from 100% */
+    }
+h5 {
+    font-size: 90%; /* Up from 80% */
+    }
+h6 {
+    font-size: 80%; /* Up from 70% */
+    }
+```
 
 ##### Level 5
 
-It doesn't re-define the body text font, and it doesn't make 
-the text body narrow --- it leaves it full width. I will probably 
-add a style option file for that.
+It doesn't re-define the body text font, and it doesn't make the text body 
+narrow --- it leaves it full width. I think this creates a good base to 
+layer on some style flavoring CSS files.
 
 ###### Level 6
 
@@ -46,13 +71,13 @@ Unordered lists
 
 ### A simple list:
 
-Text before
+A paragraph before.
 
 * Alpha
 * Beta
 * Gamma
 
-Text after
+A paragraph after.
 
 ### A nested list:
 
@@ -71,7 +96,7 @@ Text after
 
 ### A paragraph spaced one:
 
-Not all stylesheets make these have more spacing.
+Not all style sheets make these have more spacing.
 
 * Alpha
 
@@ -86,19 +111,30 @@ Ordered lists
 
 ### A simple one:
 
+A paragraph before.
+
 1. One
 2. Two
 3. Three
 
+A paragraph after.
+
 ### A nested one:
 
+The outer level is loose format.
+
 1. One
+
     1. Alpha
     2. Beta
+    
 2. Two (with unordered sublist)
+
     * Gamma
     * Delta
+    
 3. Three
+
     1. Apple
         1. Circle
         2. Triangle
@@ -111,6 +147,7 @@ Ordered lists
         3. Square
     1. Orange
 
+The inner levels were left as tight format.
 
 Block Quotes
 ============
@@ -139,14 +176,15 @@ word wrap. For print, the code blocks also change to word wrap. On screen, the
 Links
 =====
 
-Remove the underline except on hover. When printing, remove all styling and 
-print external URLs after the link text to be useful in a printout. There is no 
-filter to not print very long URLs though.
+Have a subtler dotted underline with hover emphasizing with a solid line. When 
+printing, remove all styling and print external URLs after the link text to be 
+useful in a printout. There is no filter to not print very long URLs though.
 
-A link to [Google][]. A simple link to <http://wikipedia.org>.
+Link text to [Google][]. An automatic link to <http://wikipedia.org>.
 
 I haven't figured out how to not redundantly print the URL after a simple link 
-whose link text is the URL.
+whose link text is the URL, so maybe that fancy print feature should be moved to 
+an extras CSS file.
 
 [Google]: http://www.google.com
 
@@ -158,20 +196,37 @@ in print.
 
 - - -
 
-See the end for what footnotes looks like[^1].
+See the end for what footnotes look like[^1].
 
-[^1]: A double-line rule with the word "NOTES" in the center.
+[^1]: Footnotes set off with a double-line rule.
 
 Images
 ======
 
-An inline image ![](http://www.jodypaul.com/gr/altair8800Thumb.gif "www.jodypaul.com").
+An inline image ![][altair], and one with [![][altair] that's linked][google].
 
-A Pandoc figure style image with caption:
+[altair]: http://www.jodypaul.com/gr/altair8800Thumb.gif "www.jodypaul.com"
+[altair baseline]: http://www.jodypaul.com/gr/altair8800Thumb.gif "www.jodypaul.com" {.baseline}
+[altair top]: http://www.jodypaul.com/gr/altair8800Thumb.gif "www.jodypaul.com" {.top}
+[altair border]: http://www.jodypaul.com/gr/altair8800Thumb.gif "www.jodypaul.com" {.border .pad .rounded .shadow}
 
-![Daring Fireball][DFlogo]
+Inline images with classes
+--------------------------
 
-[DFlogo]: http://daringfireball.net/graphics/logos/ "Daring Fireball!"
+Baseline: ![][altair baseline], 
+
+Top: ![][altair top].
+
+Border, pad, rounded, shadow: ![][altair border]
+
+It seems images with different vertical alignments won't work in the same paragraph.
+
+Figure style image
+------------------
+
+![Wikipedia logo][logo]
+
+[logo]: https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/842px-Wikipedia-logo-v2.svg.png "Wikipedia logo" {.max45}
 
 
 Definition Lists
@@ -223,3 +278,15 @@ useful on-screen when scrubbing around the table.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax.
+
+Math
+====
+
+There is inline math: $E=mc^2$
+
+There is display math:
+
+$$ q = \frac{1}{2}\rho\nu^2 $$
+
+The CSS has some empty elements for these but adding style is not advised as it 
+will mess up the HTML renderers like MathJax.

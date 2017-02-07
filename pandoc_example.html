@@ -4,32 +4,90 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Pandoc Markdown Version" />
+  <meta name="author" content="Ryan Gray" />
   <title>Buttondown Stylesheet Example</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link rel="stylesheet" href="buttondown.css" type="text/css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 </head>
 <body>
 <div id="header">
 <h1 class="title">Buttondown Stylesheet Example</h1>
-<h2 class="author">Pandoc Markdown Version</h2>
-<h3 class="date">February 2012</h3>
+<h1 class="subtitle">Pandoc Markdown Version</h1>
+<h2 class="author">Ryan Gray</h2>
+<h3 class="date">February 2016</h3>
 </div>
-<div class="section level1" id="headers">
+<div id="headers" class="section level1">
 <h1>Headers</h1>
-<p>Above this, we have the title, author (or subtitle) and date Pandoc metadata. These are specially classed H1, H2 and H3 elements that we just add centering to.</p>
-<div class="section level2" id="level-2">
+<p>Above this, we have the title, subtitle, author, date, and abstract Pandoc metadata. These are specially classed H1, H2, H3, and DIV elements that we add styling to.</p>
+<div id="level-2" class="section level2">
 <h2>Level 2</h2>
-<p>With Pandoc’s <code>--section-divs</code> option, nested header levels create nested DIVs. This stylesheet creates nested indentation for them to nest visually.</p>
-<div class="section level3" id="level-3">
+<p>With Pandoc’s <code>--section-divs</code> option, nested header levels create nested DIVs in HTML. This stylesheet creates nested indentation for them to nest visually.</p>
+<div id="level-3" class="section level3">
 <h3>Level 3</h3>
-<p>I should create some auxiliary CSS files that you could include after <code>buttondown.css</code> to change some things like turning off nested indenting.</p>
-<div class="section level4" id="level-4">
+<p>I you can, of course, modify this CSS file or override some elements with your own other CSS after <code>buttondown.css</code> to change some things like turning off nested indenting.</p>
+<div id="level-4" class="section level4">
 <h4>Level 4</h4>
-<p>Buttondown doesn’t re-define the font size or weight of the headers, but it does define the font families for them as sans- serf.</p>
-<div class="section level5" id="level-5">
+<p>Buttondown doesn’t re-define the font size or weight of the headers, but it does define the font families for them as sans- serf. I have personally been using these font-size settings:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">170%</span><span class="kw">;</span> <span class="co">/* Tone it down from 200% */</span>
+    <span class="kw">}</span>
+h2 <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">130%</span><span class="kw">;</span> <span class="co">/* Tone it down from 150% */</span>
+    <span class="kw">}</span>
+h3 <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">120%</span><span class="kw">;</span> <span class="co">/* Up from 116% */</span>
+    <span class="kw">}</span>
+h4 <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">110%</span><span class="kw">;</span> <span class="co">/* Up from 100% */</span>
+    <span class="kw">}</span>
+h5 <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">90%</span><span class="kw">;</span> <span class="co">/* Up from 80% */</span>
+    <span class="kw">}</span>
+h6 <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">80%</span><span class="kw">;</span> <span class="co">/* Up from 70% */</span>
+    <span class="kw">}</span></code></pre></div>
+<div id="level-5" class="section level5">
 <h5>Level 5</h5>
-<p>It doesn’t re-define the body text font, and it doesn’t make the text body narrow — it leaves it full width. I will probably add a style option file for that.</p>
-<div class="section level6" id="level-6">
+<p>It doesn’t re-define the body text font, and it doesn’t make the text body narrow — it leaves it full width. I think this creates a good base to layer on some style flavoring CSS files.</p>
+<div id="level-6" class="section level6">
 <h6>Level 6</h6>
 <p>Level 6 can be quite small.</p>
 </div>
@@ -38,21 +96,21 @@
 </div>
 </div>
 </div>
-<div class="section level1" id="lists">
+<div id="lists" class="section level1">
 <h1>Lists</h1>
-<div class="section level2" id="unordered-lists">
+<div id="unordered-lists" class="section level2">
 <h2>Unordered lists</h2>
-<div class="section level3" id="a-simple-list">
+<div id="a-simple-list" class="section level3">
 <h3>A simple list:</h3>
-<p>Text before</p>
+<p>A paragraph before.</p>
 <ul>
 <li>Alpha</li>
 <li>Beta</li>
 <li>Gamma</li>
 </ul>
-<p>Text after</p>
+<p>A paragraph after.</p>
 </div>
-<div class="section level3" id="a-nested-list">
+<div id="a-nested-list" class="section level3">
 <h3>A nested list:</h3>
 <ul>
 <li>Alpha
@@ -62,7 +120,8 @@
 </ul></li>
 <li>Beta
 <ul>
-<li>A multi-line item to show<br /> where the wrapping and sublist line up.
+<li>A multi-line item to show<br />
+where the wrapping and sublist line up.
 <ul>
 <li>Earth</li>
 <li>Moon</li>
@@ -76,9 +135,9 @@
 </ol></li>
 </ul>
 </div>
-<div class="section level3" id="a-paragraph-spaced-one">
+<div id="a-paragraph-spaced-one" class="section level3">
 <h3>A paragraph spaced one:</h3>
-<p>Not all stylesheets make these have more spacing.</p>
+<p>Not all style sheets make these have more spacing.</p>
 <ul>
 <li><p>Alpha</p></li>
 <li><p>Beta</p></li>
@@ -87,30 +146,33 @@
 <p>And the spacing after might be too tight.</p>
 </div>
 </div>
-<div class="section level2" id="ordered-lists">
+<div id="ordered-lists" class="section level2">
 <h2>Ordered lists</h2>
-<div class="section level3" id="a-simple-one">
+<div id="a-simple-one" class="section level3">
 <h3>A simple one:</h3>
+<p>A paragraph before.</p>
 <ol style="list-style-type: decimal">
 <li>One</li>
 <li>Two</li>
 <li>Three</li>
 </ol>
+<p>A paragraph after.</p>
 </div>
-<div class="section level3" id="a-nested-one">
+<div id="a-nested-one" class="section level3">
 <h3>A nested one:</h3>
+<p>The outer level is loose format.</p>
 <ol style="list-style-type: decimal">
-<li>One
+<li><p>One</p>
 <ol style="list-style-type: decimal">
 <li>Alpha</li>
 <li>Beta</li>
 </ol></li>
-<li>Two (with unordered sublist)
+<li><p>Two (with unordered sublist)</p>
 <ul>
 <li>Gamma</li>
 <li>Delta</li>
 </ul></li>
-<li>Three
+<li><p>Three</p>
 <ol style="list-style-type: decimal">
 <li>Apple
 <ol style="list-style-type: decimal">
@@ -133,44 +195,55 @@
 <li>Orange</li>
 </ol></li>
 </ol>
+<p>The inner levels were left as tight format.</p>
 </div>
 </div>
 </div>
-<div class="section level1" id="block-quotes">
+<div id="block-quotes" class="section level1">
 <h1>Block Quotes</h1>
 <p>We simply italicize them and don’t do any fancy quote bar or decoration since they are already indented on the left and right.</p>
 <blockquote>
 <p>We simply italicize them and don’t do any fancy quote bar or decoration since they are already indented on the left and right.</p>
 </blockquote>
 </div>
-<div class="section level1" id="code">
+<div id="code" class="section level1">
 <h1>Code</h1>
 <p>Code blocks are styled more to be set apart a bit more than just the monospaced font. A light background color and border (in case the background doesn’t print, but it looks nice too).</p>
 <pre><code>x = e * 10 / 2;
 y = p - 7;</code></pre>
 <p>On screen, the blocks provide scroll boxes and the <code>inline code spans</code> word wrap. For print, the code blocks also change to word wrap. On screen, the <code>code spans</code> also get a little border, but lose it in print.</p>
 </div>
-<div class="section level1" id="links">
+<div id="links" class="section level1">
 <h1>Links</h1>
-<p>Remove the underline except on hover. When printing, remove all styling and print external URLs after the link text to be useful in a printout. There is no filter to not print very long URLs though.</p>
-<p>A link to <a href="http://www.google.com">Google</a>. A simple link to <a href="http://wikipedia.org"><code class="url">http://wikipedia.org</code></a>.</p>
-<p>I haven’t figured out how to not redundantly print the URL after a simple link whose link text is the URL.</p>
+<p>Have a subtler dotted underline with hover emphasizing with a solid line. When printing, remove all styling and print external URLs after the link text to be useful in a printout. There is no filter to not print very long URLs though.</p>
+<p>Link text to <a href="http://www.google.com">Google</a>. An automatic link to <a href="http://wikipedia.org" class="uri">http://wikipedia.org</a>.</p>
+<p>I haven’t figured out how to not redundantly print the URL after a simple link whose link text is the URL, so maybe that fancy print feature should be moved to an extras CSS file.</p>
 </div>
-<div class="section level1" id="horizontal-rule">
+<div id="horizontal-rule" class="section level1">
 <h1>Horizontal rule</h1>
 <p>A thin line that doesn’t have that shadow thing that looks terrible, especially in print.</p>
 <hr />
-<p>See the end for what footnotes looks like<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>.</p>
+<p>See the end for what footnotes look like<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 </div>
-<div class="section level1" id="images">
+<div id="images" class="section level1">
 <h1>Images</h1>
-<p>An inline image <img src="http://www.jodypaul.com/gr/altair8800Thumb.gif" title="www.jodypaul.com" />.</p>
-<p>A Pandoc figure style image with caption:</p>
+<p>An inline image <img src="http://www.jodypaul.com/gr/altair8800Thumb.gif" title="www.jodypaul.com" />, and one with <a href="http://www.google.com"><img src="http://www.jodypaul.com/gr/altair8800Thumb.gif" title="www.jodypaul.com" /> that’s linked</a>.</p>
+<div id="inline-images-with-classes" class="section level2">
+<h2>Inline images with classes</h2>
+<p>Baseline: <img src="http://www.jodypaul.com/gr/altair8800Thumb.gif" title="www.jodypaul.com" class="baseline" />,</p>
+<p>Top: <img src="http://www.jodypaul.com/gr/altair8800Thumb.gif" title="www.jodypaul.com" class="top" />.</p>
+<p>Border, pad, rounded, shadow: <img src="http://www.jodypaul.com/gr/altair8800Thumb.gif" title="www.jodypaul.com" class="border pad rounded shadow" /></p>
+<p>It seems images with different vertical alignments won’t work in the same paragraph.</p>
+</div>
+<div id="figure-style-image" class="section level2">
+<h2>Figure style image</h2>
 <div class="figure">
-<img src="http://daringfireball.net/graphics/logos/" title="Daring Fireball!" alt="Daring Fireball" /><p class="caption">Daring Fireball</p>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/842px-Wikipedia-logo-v2.svg.png" title="Wikipedia logo" alt="Wikipedia logo" class="max45" />
+<p class="caption">Wikipedia logo</p>
 </div>
 </div>
-<div class="section level1" id="definition-lists">
+</div>
+<div id="definition-lists" class="section level1">
 <h1>Definition Lists</h1>
 <p>Still may tweak this. Trying to use subtle lines to help group it, but it feels a bit too table-like. However, without them, it doesn’t seem to stand out much.</p>
 <dl>
@@ -188,11 +261,12 @@ y = p - 7;</code></pre>
 </dd>
 <dt>Term3</dt>
 <dd><p>A term can have multiple definitions.</p>
-</dd><dd><p>The second definition of Term3. Depending on the stylesheet for HTML you are using or the output format (LaTeX, etc.), this second definition may appear styled as a separate term but without the term itself.</p>
+</dd>
+<dd><p>The second definition of Term3. Depending on the stylesheet for HTML you are using or the output format (LaTeX, etc.), this second definition may appear styled as a separate term but without the term itself.</p>
 </dd>
 </dl>
 </div>
-<div class="section level1" id="tables">
+<div id="tables" class="section level1">
 <h1>Tables</h1>
 <p>These get more styling than most things, yet it’s still very little compared to most table stylings, but way better than an un-styled HTML table. It’s to emulate a simple textbook style, but we throw in a hover row highlight to be a little useful on-screen when scrubbing around the table.</p>
 <table>
@@ -202,7 +276,7 @@ y = p - 7;</code></pre>
 <th align="right">Right</th>
 <th align="left">Left</th>
 <th align="center">Center</th>
-<th align="left">Default</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
@@ -210,27 +284,34 @@ y = p - 7;</code></pre>
 <td align="right">12</td>
 <td align="left">12</td>
 <td align="center">12</td>
-<td align="left">12</td>
+<td>12</td>
 </tr>
 <tr class="even">
 <td align="right">123</td>
 <td align="left">123</td>
 <td align="center">123</td>
-<td align="left">123</td>
+<td>123</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
 <td align="left">1</td>
 <td align="center">1</td>
-<td align="left">1</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
 </div>
+<div id="math" class="section level1">
+<h1>Math</h1>
+<p>There is inline math: <span class="math inline">\(E=mc^2\)</span></p>
+<p>There is display math:</p>
+<p><span class="math display">\[ q = \frac{1}{2}\rho\nu^2 \]</span></p>
+<p>The CSS has some empty elements for these but adding style is not advised as it will mess up the HTML renderers like MathJax.</p>
+</div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>A double-line rule with the word “NOTES” in the center.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Footnotes set off with a double-line rule.<a href="#fnref1">↩</a></p></li>
 </ol>
 </div>
 </body>
