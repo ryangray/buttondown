@@ -28,6 +28,18 @@
     MathJax under Safari.
 */
 
+/* Keep the body at most 60em wide and center if widnow is wider, but keep the 
+   0.5em margin as padding for when the window is small it still has a margin.
+*/
+body
+    {
+    max-width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    }
+
 /* ---- Front Matter ---- */
 
 /* Pandoc header DIV. Contains .title, .author and .date. Comes before div#TOC. 
@@ -41,36 +53,49 @@ div#header, header
     margin-bottom: 0.5em;
     }
 
-.title, .subtitle /* Pandoc title header (h1.title) */
+.title /* Pandoc title header (h1.title) */
     {
     text-align: center;
+    font-size: 220%; /* A little bigger than H1 */
+    font-family: "Liberation Serif", "Georgia", "Times New Roman", serif; /* Serif headers */
     }
-.subtitle
+.subtitle /* Pandoc subtitle (p.subtitle) */
     {
-    font-size: medium;
+    text-align: center;
+    font-size: 120%;
     font-style: italic;
     }
 
-.author, .date /* Pandoc author(s) and date headers (h2.author and h3.date) */
+.author, .date /* Pandoc author(s) and date text (p.author and p.date) */
     {
     text-align: center;
     }
 
-/* Abstract: not in the default HTML template, but you can add it to your custom HTML template with:
-     $if(abstract)$
-     <div class="abstract">$abstract$</div>
-     $endif$"
-   I've added mine at the end of the <header></header> section.
-   To use it, add an "abtract:" YAML variable to your document which will need to follow the 
-   multi-line variable value rules, see the example: http://pandoc.org/MANUAL.html#extension-yaml_metadata_block
+/* Abstract: 
+   To use it, add an "abstract:" YAML variable to your document which will need 
+   to follow the multi-line variable value rules, see the example at:
+   http://pandoc.org/MANUAL.html#extension-yaml_metadata_block
+   The default abstract-title is "Abstract".
  */
-.abstract 
+.abstract
     {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-bottom: 0.5em;
     text-align: justify;
     font-style: italic;
-    margin-bottom: 0.5em;
-    margin-left: 3em;
-    margin-right: 3em;
+    font-size: 90%;
+    }
+.abstract-title /* A div within div.abstract */
+    {
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    margin-left: inherit; /* don't nest with --section-div rule */
+    margin-bottom: 1em;
+    margin-top: 1.4em;
     }
 
 /* Pandoc table of contents DIV when using the --toc option.
@@ -83,6 +108,7 @@ div#TOC, nav#TOC
     /* Put border on bottom to separate it from body. */
     border-bottom: 1px solid #aaa;
     margin-bottom: 0.5em;
+    font-size: 90%;
     }
 
 @media print
@@ -104,6 +130,50 @@ h1, h2, h3, h4, h5, h6
 
     page-break-after: avoid; /* Firefox, Chrome, and Safari do not support the property value "avoid" */
     }
+
+/* Header level specific - 
+   Make the spacing before and after a total of 1.68em (in body font) with 60% above
+ */
+h1  {
+    /* font-size: 200%; */
+    margin-block-start: 0.844em; /* was 0.67em*200%=1.34em'=21.4px */
+    margin-block-end: 0.563em; /* now 27,18px/16px/200% */
+    }
+
+h2  {
+    /* font-size: 150%; */
+    margin-block-start: 1.125em; /* 0.83em*150%=1.25em'=20px */
+    margin-block-end: 0.75em; /* now 1.4em'*2/150% split 60/40%=26.9/18px */
+    }
+h3  {
+    /* font-size: 117%; */
+    margin-block-start: 1.442em; /* 1.00em*117%=1.17em' */
+    margin-block-end: 0.962em; /* now 1.4em'*2/117% split 60/40%=26.9/17.9px */
+}
+h4  {
+    /* font-size: 100%; */
+    margin-block-start: 1.688em; /* 1.33em*100%=1.33em' */
+    margin-block-end: 1.125em; /*  now 1.4em'*2/100% split 60/40%=26.9/17.9px */
+}
+h5  {
+    /* font-size: 83%; */
+    /* margin-block-start: 2.033em; /* 1.67em*83%=1.39em' */
+    /* margin-block-end: 1.355em; /* 1.67em*83%=1.39em' */
+    font-size: 100%;
+    margin-block-start: 1.688em; /* 1.33em*100%=1.33em' */
+    margin-block-end: 1.125em; /*  now 1.4em'*2/100% split 60/40%=26.9/17.9px */
+    font-style: italic;
+}
+h6  {
+    /* font-size: 67%; */
+    /* margin-block-start: 2.529em; /* 2.33em*67%=1.56em' */
+    /* margin-block-end: 1.679em; /* 2.33em*67%=1.56em' */
+    font-size: 100%;
+    margin-block-start: 1.688em; /* 1.33em*100%=1.33em' */
+    margin-block-end: 1.125em; /*  now 1.4em'*2/100% split 60/40%=26.9/17.9px */
+    font-style: italic;
+    font-weight: normal;
+}
 
 /* Pandoc with --section-divs option */
 
@@ -534,29 +604,12 @@ a[href^="#fnref"], a.reversefootnote /* Pandoc, MultiMarkdown, ?? footnote back 
 
 .footnotes > hr
     {
-    margin-top: 2em;
-    padding: 0;
-    border: none;
+    margin-top: 1em;
     border-top: double;
     border-color: #303030;
     border-width: 3pt;
-    color: black;
     text-align: center;
     }
-
-/* The NOTES text banner is not working well on IE, so disabled it, leaving just the fancy HR */
-/*
-.footnotes > hr:after
-    {
-    content: "NOTES";
-    display: inline-block;
-    position: relative; 
-    top: -0.8em;  
-    font-size: 0.8em;
-    padding: 0 0.5em;
-    background: white;
-    }
-*/
 
 /* Convenience classes for DIVs or other things inserted into the Markdown */
 
